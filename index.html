@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Generator CV Website</title>
+  <script defer src="script.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'quicksand', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-6 from-indigo-700 to-blue-300 bg-gradient-to-r flex items-center justify-center">
+  <div class="max-w-4xl mx-auto bg-gray-700/40 p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-4 text-center text-yellow-100">CV Website Prompt Generator</h1>
+    <form id="cvForm" class="space-y-6">
+
+      <!-- Nama lengkap -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Nama Lengkap Pembuat CV:</label>
+        <input type="text" name="nama" class="w-full border-[3px] p-1 rounded" required>
+      </div>
+
+      <!-- Tanggal Lahir -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Tanggal Kelahiran (mm/dd/yyyy):</label>
+        <input type="date" name="tanggalLahir" class="w-full border p-2 rounded" required>
+      </div>
+
+      <!-- Posisi -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Posisi yang Ingin Dilamar:</label>
+        <input type="text" name="posisi" class="w-full border p-2 rounded" required>
+      </div>
+
+      <!-- Deskripsi Diri -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100 ">Deskripsi Singkat Diri:</label>
+        <textarea name="deskripsi" rows="4" class="w-full border p-2 rounded" required></textarea>
+      </div>
+
+      <!-- Kontak -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Email:</label>
+        <input type="email" name="email" class="w-full border p-2 rounded" required>
+      </div>
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Telepon:</label>
+        <input type="text" name="telepon" class="w-full border p-2 rounded" required>
+      </div>
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Media Sosial (Opsional):</label>
+        <input type="text" name="sosial" class="w-full border p-2 rounded">
+      </div>
+
+      <!-- Pendidikan -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Riwayat Pendidikan:</label>
+        <textarea name="pendidikan" rows="3" class="w-full border p-2 rounded" required></textarea>
+      </div>
+
+      <!-- Pengalaman -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Pengalaman Kerja:</label>
+        <textarea name="pengalaman" rows="3" class="w-full border p-2 rounded" required></textarea>
+      </div>
+
+      <!-- Keahlian -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Keahlian / Skill:</label>
+        <textarea name="keahlian" rows="3" class="w-full border p-2 rounded" required></textarea>
+      </div>
+
+      <!-- Sertifikasi -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Sertifikasi (Opsional):</label>
+        <textarea name="sertifikasi" rows="2" class="w-full border p-2 rounded"></textarea>
+      </div>
+
+      <!-- Hobi -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Hobi / Minat (Opsional):</label>
+        <textarea name="hobi" rows="2" class="w-full border p-2 rounded"></textarea>
+      </div>
+
+      <!-- Gaya CV -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Gaya CV:</label>
+        <select name="gayaCV" class="w-full border p-2 rounded" required>
+          <option>Dusty Rose</option>
+          <option>Sage Green</option>
+          <option>Ivory / Off White</option>
+          <option>Lavender / Lilac</option>
+          <option>Emerald Green</option>
+          <option>Navy Blue</option>
+          <option>Peach / Coral</option>
+          <option>Black & White</option>
+          <option>Dusty Blue</option>
+        </select>
+      </div>
+
+      <!-- Gaya Visual -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Gaya Visual Website:</label>
+        <select name="gayaVisual" class="w-full border p-2 rounded" required>
+          <option>Minimalis elegan</option>
+          <option>Modern Profesional</option>
+          <option>Floral / Soft Accent</option>
+          <option>Modern glam</option>
+          <option>Classic / Traditional</option>
+          <option>Creative / Bohemian</option>
+          <option>Dark mode / Moody</option>
+          <option>Rustic / Natural</option>
+        </select>
+      </div>
+
+      <!-- Elemen -->
+      <div class="form-group">
+        <label class="block font-medium text-yellow-100">Elemen yang Ingin Ditampilkan:</label>
+        <label><input type="checkbox" name="elemen" value="Foto Profil" class="mr-2" >Foto Profil</label>
+        <input type="text" name="fotoProfil" placeholder="Link Google Drive" class="w-full mt-1 mb-2 border p-2 rounded hidden">
+
+        <label><input type="checkbox" name="elemen" value="Galeri Hasil Project" class="mr-2">Galeri Hasil Project</label>
+        <div class="grid grid-cols-2 gap-2 mb-2 hidden" id="galeriLinks">
+          <input type="text" name="galeri1" placeholder="Link 1" class="border p-2 rounded">
+          <input type="text" name="galeri2" placeholder="Link 2" class="border p-2 rounded">
+          <input type="text" name="galeri3" placeholder="Link 3" class="border p-2 rounded">
+          <input type="text" name="galeri4" placeholder="Link 4" class="border p-2 rounded">
+          <input type="text" name="galeri5" placeholder="Link 5" class="border p-2 rounded">
+          <input type="text" name="galeri6" placeholder="Link 6" class="border p-2 rounded">
+        </div>
+
+        <label><input type="checkbox" name="elemen" value="Kolom Komentar" class="mr-2">Kolom Komentar</label><br>
+        <label><input type="checkbox" name="elemen" value="Qoutes dari Pembuat CV" class="mr-2">Qoutes dari Pembuat CV</label>
+      </div>
+
+      <!-- Tombol -->
+      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Buat Prompt</button>
+    </form>
+
+    <!-- Output -->
+    <div class="mt-6">
+      <h2 class="text-xl font-semibold text-yellow-100">Hasil Prompt:</h2>
+      <textarea id="outputPrompt" rows="10" class="w-full border p-2 rounded mt-2"></textarea>
+    </div>
+    <button id="copyButton" class="mt-2 bg-green-600 text-yellow-100 px-4 py-2 rounded-lg hover:bg-green-700">Salin Prompt</button>
+    <p id="copyStatus" class="text-sm text-green-600 mt-1 hidden">Prompt berhasil Disalin 😉</p>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
