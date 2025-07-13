@@ -1,10 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("cvForm");
   const output = document.getElementById("outputPrompt");
-
   const fotoInput = form.querySelector('input[name="fotoProfil"]');
   const galeriContainer = document.getElementById("galeriLinks");
+  const qoutesInput = document.getElementById("qoutesInput");
+  const showUIButton = document.getElementById("showUIBtn");
+  const uiPreview = document.getElementById("uiPreview");
+  const warnaLatarText = document.getElementById("warnaLatarText");
+  const warnaLatarSelect = document.getElementById("warnaLatar");
 
+  //Tampilkan/hidden input sesuai pilihan
   form.addEventListener("change", (e) => {
     if (e.target.value === "Foto Profil") {
       fotoInput.classList.toggle("hidden", !e.target.checked);
@@ -14,11 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  //submit form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = new FormData(form);
 
     const elemen = data.getAll("elemen").join(", ");
+    const warnaLatar = data.get("warnaLatar") || "Putih";
 
     //Konversi Google drive link
     const convertDriveLink = (url) => {
@@ -27,9 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const fotoProfilLink = convertDriveLink(data.get("fotoProfil"));
-    
-    const galeriLinks = [...Array(6)].map((_, i) => convertDriveLink(data.get(`galeri${i + 1}`))).filter(Boolean).join(", ");
-    
+  const galeriLinks = [...Array(6)].map((_, i) =>
+      convertDriveLink(data.get(`galeri${i + 1}`))
+    ).filter(Boolean).join(", ");
+
     const prompt = `
 Saya ingin kamu bertindak sebagai seorang frontend developer profesional yang membuat website CV digital.
 Website ini harus memiliki desain yang modern, profesional, dan responsif (mobile-first). Gunakan animasi fade-in lembut saat pengguna melakukan scroll, menciptakan pengalaman interaktif yang elegan dan tidak mengganggu fokus.
@@ -51,6 +59,7 @@ Website mencakup beberapa bagian utama seperti:
 - Hobi / Minat: ${data.get("hobi") || "-"}
 - Gaya Warna CV: ${data.get("gayaCV")}
 - Gaya Visual: ${data.get("gayaVisual")}
+- Warna Latar Belakang Website: ${warnaLatar}
 - Elemen Tambahan: ${elemen}
 ${data.get("fotoProfil") ? "- Link Foto Profil: " + fotoProfilLink : ""}
 ${galeriLinks ? "- Galeri Project: " + galeriLinks : ""}
@@ -59,6 +68,13 @@ ${galeriLinks ? "- Galeri Project: " + galeriLinks : ""}
     output.value = prompt;
   });
 
+  // Tampilkan tombol "Lihat UI-nya"
+    showUIButton.classList.remove("hidden");
+
+    // Update preview UI
+    warnaLatarText.textContent = warnaLatar;
+  });
+  //Tombol salin prompt
   const copyButton = document.getElementById("copyButton");
   const copyStatus = document.getElementById("copyStatus");
 
@@ -75,4 +91,9 @@ ${galeriLinks ? "- Galeri Project: " + galeriLinks : ""}
             console.error("Failed to copy text: ", err);
         });
     });
+
+  //Tombol lihat UI
+  showUIButton.addEventListener("click", () => {
+    uiPreview.classList.toggle("hidden");
+    showUIButton.textContent = uiPreview.classList.contains("hidden") ? "Lihat UI-nya" : "Sembunyikan UI";
 });
