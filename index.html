@@ -40,7 +40,7 @@
       <!-- Nama lengkap -->
       <div class="form-group pt-6">
         <label class="block font-extrabold text-black">Nama Lengkap Pembuat CV:</label>
-        <input type="text" name="nama" class="w-full p-2 rounded" required>
+        <input type="text" name="nama" class="w-full p-2 rounded " placeholder="Nama Lengkap Anda ..." required>
       </div>
 
       <!-- Tanggal Lahir -->
@@ -58,17 +58,17 @@
       <!-- Deskripsi Diri -->
       <div class="form-group">
         <label class="block font-extrabold text-black ">Deskripsi Singkat Diri:</label>
-        <textarea name="deskripsi" rows="4" class="w-full border p-2 rounded" required></textarea>
+        <textarea name="deskripsi" rows="4" class="w-full border p-2 rounded" placeholder="Ceritakan Tentang Diri anda .... " required></textarea>
       </div>
 
       <!-- Kontak -->
       <div class="form-group">
         <label class="block font-extrabold text-black">Email:</label>
-        <input type="email" name="email" class="w-full border p-2 rounded" required>
+        <input type="email" name="email" class="w-full border p-2 rounded" placeholder="example@gmail.com " required>
       </div>
       <div class="form-group">
         <label class="block font-extrabold text-black">Telepon:</label>
-        <input type="text" name="telepon" class="w-full border p-2 rounded" required>
+        <input type="text" name="telepon" class="w-full border p-2 rounded" placeholder="+62 xxx xxxx xxxx" required>
       </div>
       <div class="form-group">
         <label class="block font-extrabold text-black">Media Sosial (Opsional):</label>
@@ -78,7 +78,7 @@
       <!-- Pendidikan -->
       <div class="form-group">
         <label class="block font-extrabold text-black">Riwayat Pendidikan:</label>
-        <textarea name="pendidikan" rows="3" class="w-full border p-2 rounded" required></textarea>
+        <textarea name="pendidikan" rows="3" class="w-full border p-2 rounded" placeholder="Universitas XYZ (2012-2016)"></textarea>
       </div>
 
       <!-- Pengalaman -->
@@ -157,13 +157,13 @@
       </div>
 
       <!-- Tombol -->
-      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700">Buat Prompt</button>
+      <button type="submit" class="bg-gradient-to-r from-blue-500 to-indigo-700 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700">Buat Prompt</button>
     </form>
 
     <!-- Output -->
     <div class="mt-6">
       <h2 class="text-xl font-extrabold text-black">Hasil Prompt:</h2>
-      <textarea id="outputPrompt" rows="10" class="w-full border p-2 rounded mt-2"></textarea>
+      <textarea id="outputPrompt" rows="10" class="w-full border p-2 rounded mt-2 focus:ring-4 focus:ring-green-500 "></textarea>
     </div>
     <button id="copyButton" class="mt-2 bg-green-600 text-yellow-100 px-4 py-2 rounded-lg font-bold hover:bg-green-700">Salin Prompt</button>
     <p id="copyStatus" class="text-sm text-green-600 mt-1 hidden">Prompt berhasil Disalin 😉</p>
