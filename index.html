@@ -167,6 +167,8 @@
 
         <label><input type="checkbox" name="elemen" value="Kolom Komentar" class="mr-2">Kolom Komentar</label><br>
         <label><input type="checkbox" name="elemen" value="Qoutes dari Pembuat CV" class="mr-2">Qoutes dari Pembuat CV</label>
+        <textarea name="qoutes" id="qoutesInput" rows="2" class="w-full border p-2 rounded mt-2 hidden"
+          placeholder="Masukkan kutipan kamu di sini..."></textarea>
       </div>
 
       <!-- Tombol -->
@@ -178,7 +180,7 @@
       <h2 class="text-xl font-extrabold text-black">Hasil Prompt:</h2>
       <textarea id="outputPrompt" rows="10" class="w-full border p-2 rounded mt-2 focus:ring-4 focus:ring-green-500 "></textarea>
     </div>
-    <button id="copyButton" class="mt-2 bg-green-600 text-yellow-100 px-4 py-2 rounded-lg font-bold hover:bg-green-700">Salin Prompt</button>
+    <button type="button" id="copyButton" class="mt-2 bg-green-600 text-yellow-100 px-4 py-2 rounded-lg font-bold hover:bg-green-700">Salin Prompt</button>
     <p id="copyStatus" class="text-sm text-green-600 mt-1 hidden">Prompt berhasil Disalin 😉</p>
 
   <button id="showUIBtn" class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-purple-700 hidden ml-2">Lihat UI-nya</button>

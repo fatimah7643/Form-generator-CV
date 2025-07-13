@@ -7,7 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const showUIButton = document.getElementById("showUIBtn");
   const uiPreview = document.getElementById("uiPreview");
   const warnaLatarText = document.getElementById("warnaLatarText");
+  /**
+   * Reference to the select element for choosing background color.
+   * @type {HTMLSelectElement}
+   */
   const warnaLatarSelect = document.getElementById("warnaLatar");
+  const copyStatus = document.getElementById("copyStatus");
+  const copyButton = document.getElementById("copyButton");
+  
 
   //Tampilkan/hidden input sesuai pilihan
   form.addEventListener("change", (e) => {
@@ -17,7 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.value === "Galeri Hasil Project") {
       galeriContainer.classList.toggle("hidden", !e.target.checked);
     }
-  });
+    if (e.target.value === "Qoutes dari Pembuat CV") {
+      qoutesInput.classList.toggle("hidden", !e.target.checked);
+    }
 
   //submit form
   form.addEventListener("submit", (e) => {
@@ -60,6 +69,7 @@ Website mencakup beberapa bagian utama seperti:
 - Gaya Warna CV: ${data.get("gayaCV")}
 - Gaya Visual: ${data.get("gayaVisual")}
 - Warna Latar Belakang Website: ${warnaLatar}
+- Qoutes: ${data.get("qoutes") || "-"}
 - Elemen Tambahan: ${elemen}
 ${data.get("fotoProfil") ? "- Link Foto Profil: " + fotoProfilLink : ""}
 ${galeriLinks ? "- Galeri Project: " + galeriLinks : ""}
@@ -69,31 +79,36 @@ ${galeriLinks ? "- Galeri Project: " + galeriLinks : ""}
   });
 
   // Tampilkan tombol "Lihat UI-nya"
+    // Tampilkan tombol "Lihat UI-nya"
     showUIButton.classList.remove("hidden");
-
+  
     // Update preview UI
     warnaLatarText.textContent = warnaLatar;
   });
-  //Tombol salin prompt
-  const copyButton = document.getElementById("copyButton");
-  const copyStatus = document.getElementById("copyStatus");
+  
+  // ...existing code...
+copyButton.addEventListener("click", () => {
+  const textToCopy = output.value.trim();
+  if (!textToCopy) return;
 
-    copyButton.addEventListener("click", () => {
-        const textToCopy = output.value.trim();
-        if (!textToCopy) return;
-
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            copyStatus.classList.remove("hidden");
-            setTimeout(() => {
-                copyStatus.classList.add("hidden");
-            }, 2000);
-        }).catch(err => {
-            console.error("Failed to copy text: ", err);
-        });
-    });
-
-  //Tombol lihat UI
-  showUIButton.addEventListener("click", () => {
-    uiPreview.classList.toggle("hidden");
-    showUIButton.textContent = uiPreview.classList.contains("hidden") ? "Lihat UI-nya" : "Sembunyikan UI";
+  navigator.clipboard.writeText(textToCopy).then(() => {
+    copyStatus.classList.remove("hidden");
+    setTimeout(() => {
+      copyStatus.classList.add("hidden");
+    }, 2000);
+  }).catch(err => {
+    console.error("Failed to copy text: ", err);
+    alert("Gagal menyalin teks. Silakan coba lagi.");
+  });
 });
+
+//Tombol lihat UI
+showUIButton.addEventListener("click", () => {
+  uiPreview.classList.toggle("hidden");
+  showUIButton.textContent = uiPreview.classList.contains("hidden") 
+    ? "Lihat UI-nya" : "Sembunyikan UI";
+});
+
+// ...existing code...
+});
+
