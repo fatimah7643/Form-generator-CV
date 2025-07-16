@@ -138,10 +138,11 @@
 
       <!-- Warna Latar -->
       <div class="form-group">
-        <label class="block font-extrabold text-black mb-1">Warna Latar Belakang Website (Custom):</label>
-       <input type="color" name="warnaLatar" value="#ffffff" class="h-10 w-16 rounded border border-gray-400 cursor-pointer">
-
-        <input type="radio" name="warnaMode" value="preset" class="" > Gunakan Warna Tema
+        <label class="block font-extrabold text-black mb-1">Tema Warna Website (Custom):</label>
+        <div>
+          <input type="color" name="warnaLatar" id="warnaPicker" value="#ffffff" class="h-10 w-10 rounded border border-gray-900 cursor-pointer">
+          <span id="kodeWarna" class="font-mono text-sm text-black">#ffffff</span>
+        </div>
       </div>
 
       <!-- Elemen -->
@@ -187,7 +188,6 @@
     </div>
 </div>
   </div>
-
 
 
   <script src="js/script.js"></script>

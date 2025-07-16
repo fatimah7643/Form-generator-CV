@@ -4,21 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const fotoInput = form.querySelector('input[name="fotoProfil"]');
   const galeriContainer = document.getElementById("galeriLinks");
   const qoutesInput = document.getElementById("qoutesInput");
-  const showUIButton = document.getElementById("showUIBtn");
-  const uiPreview = document.getElementById("uiPreview");
-  const warnaLatarText = document.getElementById("warnaLatarText");
-  /**
-   * Reference to the select element for choosing background color.
-   * @type {HTMLSelectElement}
-   */
-  const warnaLatarSelect = document.getElementById("warnaLatar");
+  const warnaPicker = document.getElementById("warnaPicker");
+  const kodeWarna = document.getElementById("kodeWarna");
   const copyStatus = document.getElementById("copyStatus");
   const copyButton = document.getElementById("copyButton");
+  const showUIButton = document.getElementById("showUIBtn");
+  const uiPreview = document.getElementById("uiPreview");
+
+ 
+  // Update warna latar belakang saat warna dipilih
+  warnaPicker.addEventListener("input", (e) => {
+    kodeWarna.textContent = e.target.value;
+  });
   
 
   //Tampilkan/hidden input sesuai pilihan
   form.addEventListener("change", (e) => {
-    if (e.target.value === "Foto Profil") {
+    const { value, checked } = e.target;
+
+    if (value === "Foto Profil") {
       fotoInput.classList.toggle("hidden", !e.target.checked);
     }
     if (e.target.value === "Galeri Hasil Project") {
@@ -27,14 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.value === "Qoutes dari Pembuat CV") {
       qoutesInput.classList.toggle("hidden", !e.target.checked);
     }
+    if (e.target.value === "Warna Latar Belakang Website") {
+      warnaPicker.classList.toggle("hidden", !e.target.checked);
+      kodeWarna.classList.toggle("hidden", !e.target.checked);
+    }
 
   //submit form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = new FormData(form);
-
     const elemen = data.getAll("elemen").join(", ");
-    const warnaLatar = data.get("warnaLatar") || "Putih";
+    const warnaLatar = data.get("warnaLatar")
 
     //Konversi Google drive link
     const convertDriveLink = (url) => {
@@ -68,7 +75,7 @@ Website mencakup beberapa bagian utama seperti:
 - Hobi / Minat: ${data.get("hobi") || "-"}
 - Gaya Warna CV: ${data.get("gayaCV")}
 - Gaya Visual: ${data.get("gayaVisual")}
-- Warna Latar Belakang Website: ${warnaLatar}
+- Warna Website: ${warnaLatar}
 - Qoutes: ${data.get("qoutes") || "-"}
 - Elemen Tambahan: ${elemen}
 ${data.get("fotoProfil") ? "- Link Foto Profil: " + fotoProfilLink : ""}
@@ -82,11 +89,7 @@ ${galeriLinks ? "- Galeri Project: " + galeriLinks : ""}
     // Tampilkan tombol "Lihat UI-nya"
     showUIButton.classList.remove("hidden");
   
-    // Update preview UI
-    warnaLatarText.textContent = warnaLatar;
-  });
-  
-  // ...existing code...
+  // salin teks ke clipboard
 copyButton.addEventListener("click", () => {
   const textToCopy = output.value.trim();
   if (!textToCopy) return;
@@ -111,4 +114,6 @@ showUIButton.addEventListener("click", () => {
 
 // ...existing code...
 });
+
+  }); 
 
