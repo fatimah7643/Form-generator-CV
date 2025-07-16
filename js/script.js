@@ -93,7 +93,7 @@ Website mencakup beberapa bagian utama seperti:
 - Elemen Tambahan: ${elemen}
 ${data.get("fotoProfil") ? "- Link Foto Profil: " + fotoProfilLink : ""}
 ${galeriLinks ? "- Galeri Project: " + galeriLinks : ""}
-Tambahkan tombol "Download CV" di bagian bawah halaman yang saat diklik akan mengunduh versi PDF dari halaman CV yang telah dibuat
+Tambahkan tombol "Download CV" di bagian bawah halaman yang akan mengunduh versi PDF dari halaman CV yang telah dibuat
     `.trim();
 
     output.value = prompt;
