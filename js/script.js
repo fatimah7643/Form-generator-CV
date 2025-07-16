@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("cvForm");
   const output = document.getElementById("outputPrompt");
+  // Elemen untuk menampilkan status salin
+  const copyStatus = document.getElementById("copyStatus");
+  const copyButton = document.getElementById("copyButton");
+  const showUIButton = document.getElementById("showUIBtn");
+  
   
 
   // Elemen warna
@@ -8,11 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const kodeWarna = document.getElementById("kodeWarna");
   const warnaTextcv = document.getElementById("warnaTextCV");
   const kodeWarnacv = document.getElementById("kodeWarnacv");
-  // Elemen untuk menampilkan status salin
-  const copyStatus = document.getElementById("copyStatus");
-  const copyButton = document.getElementById("copyButton");
-  const showUIButton = document.getElementById("showUIBtn");
-  const uiPreview = document.getElementById("uiPreview");
 
  
   // Update warna latar belakang saat warna dipilih
@@ -98,31 +98,31 @@ Tambahkan tombol "Download CV" di bagian bawah halaman yang akan mengunduh versi
 
     output.value = prompt;
   });
+  
+  // tombol salin teks
+    copyButton.addEventListener("click", () => {
+      const textToCopy = output.value.trim();
+      if (!textToCopy) return;
 
-  // Tampilkan tombol "Lihat UI-nya"
-    showUIButton.classList.remove("hidden");
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        copyStatus.classList.remove("hidden");
+        setTimeout(() => {
+          copyStatus.classList.add("hidden");
+        }, 2000);
+      }).catch(err => {
+        console.error("Failed to copy text: ", err);
+        alert("Gagal menyalin teks. Silakan coba lagi.");
+      });
+    });
+
+    //Tombol lihat UI
+    showUIButton.addEventListener("click", () => {
+      uiPreview.classList.toggle("hidden");
+      showUIButton.textContent = uiPreview.classList.contains("hidden") 
+        ? "Lihat UI-nya" : "Sembunyikan UI";
+  });
+
+  showUIButton.classList.remove("hidden");
 });
   
-  // salin teks ke clipboard
-copyButton.addEventListener("click", () => {
-  const textToCopy = output.value.trim();
-  if (!textToCopy) return;
-
-  navigator.clipboard.writeText(textToCopy).then(() => {
-    copyStatus.classList.remove("hidden");
-    setTimeout(() => {
-      copyStatus.classList.add("hidden");
-    }, 2000);
-  }).catch(err => {
-    console.error("Failed to copy text: ", err);
-    alert("Gagal menyalin teks. Silakan coba lagi.");
-  });
-});
-
-//Tombol lihat UI
-showUIButton.addEventListener("click", () => {
-  uiPreview.classList.toggle("hidden");
-  showUIButton.textContent = uiPreview.classList.contains("hidden") 
-    ? "Lihat UI-nya" : "Sembunyikan UI";
-});
 

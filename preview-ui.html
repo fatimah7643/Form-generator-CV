@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Digital - Fatimah</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- html2pdf.js for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" xintegrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        /* Custom base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* A light, neutral background */
+        }
+
+        /* Styling for the CV container */
+        #cv-container {
+            --cv-bg: #001f3f; /* Navy Blue */
+            --cv-text: #ffc2e2; /* Light Pink Text */
+            --cv-accent: #1622d0; /* Accent Blue from request */
+            --cv-header: #ffffff; /* White for main headers */
+        }
+        
+        /* Animation styles */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Main container for the entire page -->
+    <main class="container mx-auto p-4 md:p-8">
+
+        <!-- The CV itself, which will be converted to PDF -->
+        <div id="cv-container" class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="md:flex">
+                <!-- Left Column (Sidebar) -->
+                <aside class="md:w-1/3 bg-[var(--cv-bg)] text-[var(--cv-text)] p-8">
+                    <!-- Profile Picture Section -->
+                    <section class="fade-in-section text-center">
+                        <img src="https://lh3.googleusercontent.com/d/1mRJHYZh5UcD6Z-4xhYFMqQtDP1itR04P" 
+                             alt="Foto Profil Fatimah" 
+                             class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto ring-4 ring-[var(--cv-text)] object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/160x160/001f3f/ffc2e2?text=F';">
+                    </section>
+
+                    <!-- Contact Section -->
+                    <section class="fade-in-section mt-10">
+                        <h3 class="text-xl font-bold border-b-2 border-[var(--cv-text)] pb-2 mb-4">Kontak</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+                                <span>NasyaFarita123@gmail.com</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.759a11.03 11.03 0 004.28 4.28l.759-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                                <span>+62 812 3456 7891</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>
+                                <span>@nshya_ita</span>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- Skills Section -->
+                    <section class="fade-in-section mt-8">
+                        <h3 class="text-xl font-bold border-b-2 border-[var(--cv-text)] pb-2 mb-4">Keahlian</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">JavaScript</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">PHP</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Java</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Figma</span>
+                        </div>
+                    </section>
+
+                    <!-- Hobbies Section -->
+                    <section class="fade-in-section mt-8">
+                        <h3 class="text-xl font-bold border-b-2 border-[var(--cv-text)] pb-2 mb-4">Hobi & Minat</h3>
+                        <ul class="list-disc list-inside space-y-1 text-sm">
+                            <li>Coding</li>
+                            <li>Bikin Website</li>
+                            <li>Bikin Aplikasi Mobile</li>
+                        </ul>
+                    </section>
+                </aside>
+
+                <!-- Right Column (Main Content) -->
+                <div class="w-full bg-white p-8">
+                    <!-- Header Section -->
+                    <section class="fade-in-section text-center md:text-left">
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-[var(--cv-accent)]">Nasya Farita Ambrina</h1>
+                        <h2 class="text-xl md:text-2xl font-medium text-gray-600 mt-1">UI/UX Enthusiast</h2>
+                    </section>
+                    
+                    <!-- About Me Section -->
+                    <section class="fade-in-section mt-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Deskripsi Diri</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Saya merupakan ahli di bidang IT dengan semangat tinggi untuk belajar dan berkembang, khususnya dalam desain antarmuka dan pengalaman pengguna (UI/UX). Saya memiliki kemampuan analisis yang kuat, kreatif, dan mampu berkolaborasi dalam tim untuk menciptakan produk digital yang intuitif dan menarik bagi pengguna.
+                        </p>
+                    </section>
+
+                    <!-- Work Experience Section -->
+                    <section class="fade-in-section mt-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Pengalaman Kerja</h3>
+                        <div class="relative border-l-2 border-[var(--cv-accent)] pl-6">
+                            <!-- Timeline Dot -->
+                            <div class="absolute -left-[11px] top-1 w-5 h-5 bg-white border-4 border-[var(--cv-accent)] rounded-full"></div>
+                            <h3 class="font-semibold">Fresh Graduate</h3>
+                                <p class="text-sm text-gray-600">Siap Berkontribusi</p>
+                                <p class="text-sm mt-2 text-gray-700">Terbuka untuk kesempatan magang atau posisi junior untuk menerapkan ilmu yang telah dipelajari dan mendapatkan pengalaman praktis di industri teknologi.</p>
+                        </div>
+                    </section>
+
+                    <!-- Quote Section -->
+                    <section class="fade-in-section mt-10">
+                        <blockquote class="border-l-4 border-[var(--cv-accent)] pl-4 italic text-gray-600">
+                            "Akan ada hasilnya jika kamu terus berusaha, tak peduli berapa kali kamu mencobanya."
+                        </blockquote>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="text-center mt-8 fade-in-section">
+            <button id="download-btn" class="bg-[var(--cv-accent)] text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 transform hover:scale-105">
+                Download CV (PDF)
+            </button>
+        </div>
+
+    </main>
+
+    <script>
+        // JavaScript for Fade-in Animation on Scroll
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observerOptions = {
+                root: null, // relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of the item must be visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once it's visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // JavaScript for PDF Download Functionality
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const element = document.getElementById('cv-container');
+            const opt = {
+                margin:       0,
+                filename:     'CV_Fatimah_UIUX.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true }, // useCORS is important for external images
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            // New Promise-based usage:
+            html2pdf().set(opt).from(element).save();
+        });
+    </script>
+</body>
+</html>
