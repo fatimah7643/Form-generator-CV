@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("cvForm");
   const output = document.getElementById("outputPrompt");
-  const fotoInput = form.querySelector('input[name="fotoProfil"]');
-  const galeriContainer = document.getElementById("galeriLinks");
-  const qoutesInput = document.getElementById("qoutesInput");
+  
+
+  // Elemen warna
   const warnaPicker = document.getElementById("warnaPicker");
   const kodeWarna = document.getElementById("kodeWarna");
+  const warnaTextcv = document.getElementById("warnaTextCV");
+  const kodeWarnacv = document.getElementById("kodeWarnacv");
+  // Elemen untuk menampilkan status salin
   const copyStatus = document.getElementById("copyStatus");
   const copyButton = document.getElementById("copyButton");
   const showUIButton = document.getElementById("showUIBtn");
@@ -16,32 +19,41 @@ document.addEventListener("DOMContentLoaded", () => {
   warnaPicker.addEventListener("input", (e) => {
     kodeWarna.textContent = e.target.value;
   });
+  // Update warna teks CV saat warna dipilih
+  warnaTextcv.addEventListener("input", (e) => {
+    kodeWarnacv.textContent = e.target.value;
+  });  
   
 
   //Tampilkan/hidden input sesuai pilihan
   form.addEventListener("change", (e) => {
     const { value, checked } = e.target;
 
+    const fotoInput = form.querySelector('input[name="fotoProfil"]');
+    const galeriContainer = document.getElementById("galeriLinks");
+    const qoutesInput = document.getElementById("qoutesInput");
+
     if (value === "Foto Profil") {
-      fotoInput.classList.toggle("hidden", !e.target.checked);
+      fotoInput.classList.toggle("hidden", !checked);
     }
-    if (e.target.value === "Galeri Hasil Project") {
-      galeriContainer.classList.toggle("hidden", !e.target.checked);
+    if (value === "Galeri Hasil Project") {
+      galeriContainer.classList.toggle("hidden", !checked);
     }
-    if (e.target.value === "Qoutes dari Pembuat CV") {
-      qoutesInput.classList.toggle("hidden", !e.target.checked);
+    if (value === "Qoutes dari Pembuat CV") {
+      qoutesInput.classList.toggle("hidden", !checked);
     }
-    if (e.target.value === "Warna Latar Belakang Website") {
-      warnaPicker.classList.toggle("hidden", !e.target.checked);
-      kodeWarna.classList.toggle("hidden", !e.target.checked);
-    }
+  });
 
   //submit form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = new FormData(form);
+
     const elemen = data.getAll("elemen").join(", ");
     const warnaLatar = data.get("warnaLatar")
+    const warnaTextCV = data.get("warnaTextCV") 
+
+
 
     //Konversi Google drive link
     const convertDriveLink = (url) => {
@@ -76,6 +88,7 @@ Website mencakup beberapa bagian utama seperti:
 - Gaya Warna CV: ${data.get("gayaCV")}
 - Gaya Visual: ${data.get("gayaVisual")}
 - Warna Website: ${warnaLatar}
+- Warna Teks CV: ${warnaTextCV}
 - Qoutes: ${data.get("qoutes") || "-"}
 - Elemen Tambahan: ${elemen}
 ${data.get("fotoProfil") ? "- Link Foto Profil: " + fotoProfilLink : ""}
@@ -87,8 +100,8 @@ Tambahkan tombol "Download CV" di bagian bawah halaman yang saat diklik akan men
   });
 
   // Tampilkan tombol "Lihat UI-nya"
-    // Tampilkan tombol "Lihat UI-nya"
     showUIButton.classList.remove("hidden");
+});
   
   // salin teks ke clipboard
 copyButton.addEventListener("click", () => {
@@ -112,9 +125,4 @@ showUIButton.addEventListener("click", () => {
   showUIButton.textContent = uiPreview.classList.contains("hidden") 
     ? "Lihat UI-nya" : "Sembunyikan UI";
 });
-
-// ...existing code...
-});
-
-  }); 
 

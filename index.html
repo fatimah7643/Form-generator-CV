@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Generator CV Website</title>
-  <script defer src="script.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -140,8 +139,17 @@
       <div class="form-group">
         <label class="block font-extrabold text-black mb-1">Tema Warna Website (Custom):</label>
         <div>
-          <input type="color" name="warnaLatar" id="warnaPicker" value="#ffffff" class="h-10 w-10 rounded border border-gray-900 cursor-pointer">
+          <input type="color" name="warnaLatar" id="warnaPicker" value="#ffffff" class="h-10 w-10 rounded-md border-[2px] border-gray-700 cursor-pointer">
           <span id="kodeWarna" class="font-mono text-sm text-black">#ffffff</span>
+        </div>
+      </div>
+
+      <!-- Warna Text Cv -->
+      <div class="form group">
+        <label class="block font-extrabold text-black mb-1">Pilih Warna Text CV (Custom):</label>
+        <div>
+          <input type="color" name="warnaTextCV" id="warnaTextCV" value="#000000" class="h-10 w-10 rounded-md border-[2px] border-gray-700 cursor-pointer">
+          <span id="kodeWarnacv" class="font-mono text-sm text-black">#000000</span>
         </div>
       </div>
 
@@ -190,6 +198,6 @@
   </div>
 
 
-  <script src="js/script.js"></script>
+  <script defer src="js/script.js"></script>
 </body>
 </html>
