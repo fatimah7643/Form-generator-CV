@@ -3,7 +3,7 @@ ini adalah Form generator untuk pembuatan CV anda dengan mudah dan cepat
 
 Ini adalah aplikasi web generator form untuk pembuatan CV (Curriculum Vitae) secara mudah dan cepat.  
 Pengguna dapat mengisi data diri, pengalaman, pendidikan, keahlian, serta memilih gaya visual CV sesuai keinginan.  
-Setelah form diisi, aplikasi akan menghasilkan prompt atau template CV yang siap digunakan.  
+Setelah form diisi, aplikasi akan menghasilkan sebuah prompt siap pakai untuk dikirim atau memberikan perintah kepada AI untuk membuatkan cv anda  
 Fitur utama:
 - Form input lengkap (data diri, kontak, pendidikan, pengalaman, keahlian, sertifikasi, hobi, dll)
 - Pilihan gaya warna dan visual CV
