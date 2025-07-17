@@ -43,3 +43,7 @@ Aplikasi ini memanfaatkan HTML, CSS (Tailwind), dan JavaScript, serta didesain r
    - Tempel (paste) prompt yang sudah Anda salin ke kolom input di Gemini Canvas.  
    - Jalankan prompt tersebut untuk melihat preview visual CV yang dihasilkan oleh Gemini.
 Prompt yang dihasilkan dapat digunakan untuk keperluan pembuatan CV digital atau
+
+9. **Terdapat Fitur Lihat Contoh hasil nya**
+    disana anda dapat melihat bayangan preview yang akan di hasilkan ketika anda menggunakan prompt tersebut
+
