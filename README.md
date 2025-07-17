@@ -1,7 +1,7 @@
 # Form-generator-CV
 ini adalah Form generator untuk pembuatan CV anda dengan mudah dan cepat
 
-#Link Generator Prompt CV : https://fatimah7643.github.io/Form-generator-CV/
+# Link Generator Prompt CV : https://fatimah7643.github.io/Form-generator-CV/
 
 Ini adalah aplikasi web generator form untuk pembuatan CV (Curriculum Vitae) secara mudah dan cepat.  
 Pengguna dapat mengisi data diri, pengalaman, pendidikan, keahlian, serta memilih gaya visual CV sesuai keinginan.  
